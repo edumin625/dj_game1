@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', '맑은 고딕', sans-serif;
+    letter-spacing: -0.025em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    touch-action: manipulation;
+    overflow-x: hidden;
+    background-color: #0b0f19;
+    color: #f1f5f9;
+  }
+}
+
+.font-game {
+  font-family: 'Montserrat', 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Board touch control */
+.game-grid {
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Shake animation for big match combos or bomb explosions */
+@keyframes screen-shake {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  20% { transform: translate(-4px, 3px) rotate(-0.5deg); }
+  40% { transform: translate(4px, -3px) rotate(0.5deg); }
+  60% { transform: translate(-3px, -2px) rotate(0.3deg); }
+  80% { transform: translate(3px, 2px) rotate(-0.3deg); }
+}
+
+.animate-shake {
+  animation: screen-shake 0.35s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 10px currentColor);
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 20px currentColor);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 1.5s infinite ease-in-out;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  100% { transform: translateX(200%) rotate(25deg); }
+}
+
+.shimmer-effect {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-effect::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 65%
+  );
+  animation: shimmer 3s infinite ease-in-out;
+  pointer-events: none;
+}

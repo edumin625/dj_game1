@@ -1,0 +1,6 @@
+{
+  "name": "쥬얼 블래스트 (Jewel Blast)",
+  "description": "반응형 8x8 매치-3 보석 퍼즐 게임. 타임 어택 모드와 특수 보석 효과를 즐겨보세요.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
